@@ -19,7 +19,7 @@
         
         <!-- Validation -->
         <script>
-            function submit_form(params) {
+            function submit_form() {
                 tmp_uname = document.getElementById('uname').value;
                 tmp_uid = document.getElementById('uid').value;
                 tmp_email = document.getElementById('email').value;
@@ -28,7 +28,7 @@
                 tmp_queries = document.getElementById('queries').value;
 
                 str_pattern = /^[a-zA-Z]+$/;
-                email_pattern =  /^[a-z0-9._-]+@[a-z]+.[a-z.]{2,5}.?[a-z.]{2}$/i;
+                email_pattern =  /^[a-z0-9._-]+@[a-z]+\.[a-z]{2,5}(\.[a-z]{2})?$/i;
 
                 
                 if (!tmp_uname.match(str_pattern)){
