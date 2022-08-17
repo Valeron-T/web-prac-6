@@ -1,0 +1,13 @@
+#main-title {
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.form-group {
+    padding-bottom: 0.5rem;
+}
+
+#main-body {
+    font-family: 'Comfortaa', cursive;
+    background-image: linear-gradient(to right, #26d17e , #77b6c2);
+}

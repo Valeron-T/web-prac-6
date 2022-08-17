@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Seminar Registration</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+        
+        <!-- Validation -->
+        <script>
+            function submit_form(params) {
+                tmp_uname = document.getElementById('uname').value;
+                tmp_uid = document.getElementById('uid').value;
+                tmp_email = document.getElementById('email').value;
+                tmp_year = document.getElementById('year').value;
+                tmp_knowledge = document.getElementById('knowledge').value;
+                tmp_queries = document.getElementById('queries').value;
+
+                str_pattern = /^[a-zA-Z]+$/;
+                email_pattern =  /^[a-z0-9._-]+@[a-z]+.[a-z.]{2,5}.?[a-z.]{2}$/i;
+
+                
+                if (!tmp_uname.match(str_pattern)){
+                    document.getElementById('info').innerHTML = "Invalid Name";
+                    document.getElementById('info').className = "";
+                }
+                else if (isNaN(tmp_uid) || tmp_uid == "") {
+                    document.getElementById('info').innerHTML = "Invalid UID";
+                    document.getElementById('info').className = "";
+                }
+                else if (!tmp_email.match(email_pattern)) {
+                    document.getElementById('info').innerHTML = "Invalid Email";
+                    document.getElementById('info').className = "";
+                }
+                else {
+                    document.getElementById('info').innerHTML = "Details Submitted successfully";
+                    document.getElementById('info').className = "";
+                }
+            }
+        </script>
+
+    </head>
+    <body id="main-body">
+        <div class="container-fluid">
+            <div class="row">
+                <h1 id="main-title">AI Seminar Registration Form</h1>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-6 d-flex justify-content-center">
+                    <form>
+                        <div class="form-group">
+                            <p style="text-align:center;" class="visually-hidden" id="info">&nbsp;</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="mx-3">Name</label>
+                            <input type="text" class="form-control rounded-pill" id="uname" placeholder="Name"><br>
+                        </div>
+                        <div class="form-group">
+                            <label class="mx-3">UID</label>
+                            <input type="text" class="form-control rounded-pill" id="uid" placeholder="Uid"><br>
+                        </div>
+                        <div class="form-group">
+                            <label class="mx-3">Email</label>
+                            <input type="text" class="form-control rounded-pill" id="email" placeholder="Email"><br>
+                        </div>
+                        <div class="form-group">
+                            <label>Select year</label>
+                            <select id="year">
+                                <option>FY</option>
+                                <option>SY</option>
+                                <option>TY</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>How well do you know the topic being covered?</label>
+                            <select id="knowledge">
+                                <option>Beginner</option>
+                                <option>Intermediate</option>
+                                <option>Advanced</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Do you have any questions?</label>
+                            <textarea class='form-control my-2' placeholder="Type here..." id="queries" rows="4"></textarea>
+                        </div>
+                        <div class="form-group d-flex justify-content-center">
+                            <button type="button" class="btn btn-dark rounded-pill" onclick="submit_form();" id="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
